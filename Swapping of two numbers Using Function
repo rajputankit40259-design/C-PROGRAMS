@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <conio.h>
+
+/* Function prototype without pointers */
+void swap(int x, int y);
+
+void main()
+{
+    int a, b;
+    clrscr();
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    printf("\nBefore swapping (in main): a = %d, b = %d", a, b);
+
+    /* Pass values directly */
+    swap(a, b);
+
+    /* 'a' and 'b' in main() are STILL unchanged here */
+    printf("\nAfter function call (in main): a = %d, b = %d", a, b);
+    getch();
+}
+
+/* Function definition */
+void swap(int x, int y)
+{
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+
+    /* Must print inside the function to see the swapped result */
+    printf("\nAfter swapping (inside function): a = %d, b = %d", x, y);
+}
